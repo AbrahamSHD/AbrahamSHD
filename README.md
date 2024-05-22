@@ -1,16 +1,28 @@
-## Hi there 👋
+<div id="user-content-toc">
+  <ul align="center">
+    <summary><h1 style="display: inline-block">Hey 👋, Soy AbrahamHC</h1></summary>
+  </ul>
+</div>
+<p>
 
-<!--
-**AbrahamSHD/AbrahamSHD** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+- ☁️ Tengo gran interés en el desarrollo backend. Entonces, estoy aprendiendo Nest.js.
 
-Here are some ideas to get you started:
+- 🔭 Actualmente estoy trabajando en Nodejs, Typecript y PostgreSQL
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 💬 Pregúntame sobre Javascript, Typecript
+
+- 📫 No dudes en comunicarte conmigo hernandez.c.abraham.00@gmail.com
+</p>
+<br>
+
+<div id="user-content-toc">
+  <ul align="center">
+    <summary><h2 style="display: inline-block">Tecnologías y herramientas que conozco 👨🏻‍💻</h2></summary>
+  </ul>
+</div>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=git,github,html,css,tailwind,js,ts,ubuntu,mongodb,postgresql,nodejs,postman,npm,powershell,vscode&perline=14" />
+  </a>
+</p>
