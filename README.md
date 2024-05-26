@@ -5,11 +5,11 @@
 </div>
 <p>
 
-- ☁️ Tengo gran interés en el desarrollo backend. Entonces, estoy aprendiendo Nest.js.
+- ☁️ Tengo gran interés en el desarrollo backend. Entonces, estoy aprendiendo Nest js.
 
-- 🔭 Actualmente estoy trabajando en Nodejs, Typecript y PostgreSQL
+- 🔭 Actualmente estoy trabajando en Nodejs, Typescript y PostgreSQL
 
-- 💬 Pregúntame sobre Javascript, Typecript
+- 💬 Pregúntame sobre Javascript, Typescript
 
 - 📫 No dudes en comunicarte conmigo hernandez.c.abraham.00@gmail.com
 
