@@ -11,7 +11,7 @@
 
 - 📫 No dudes en comunicarte conmigo hernandez.c.abraham.00@gmail.com
 
-- <a href="https://porfolio-ahc.netlify.app/" target="_blank" rel="noopener">💼 Portfolio</a> =>
+- <a href="https://porfolio-ahc.netlify.app/" target="_blank" rel="noopener">💼 Portfolio</a>
 </p>
 <br>
 
