@@ -61,3 +61,43 @@ app.MapGet("/", (MeetingService meetingService) =>
 });
 
 app.Run();
+
+
+using Domain.Entities;
+using Microsoft.Extensions.Configuration;
+using OfficeOpenXml;
+using System.Collections.Generic;
+using System.IO;
+
+namespace Infrastructure.Data
+{
+    public class ExcelReader
+    {
+        private readonly string _filePath;
+
+        public ExcelReader(IConfiguration configuration)
+        {
+            // Acceder a la variable de entorno
+            _filePath = configuration["ExcelFilePath"];
+        }
+
+        public List<Meeting> ReadMeetings()
+        {
+            using var package = new ExcelPackage(new FileInfo(_filePath));
+            var worksheet = package.Workbook.Worksheets[0];
+            var meetings = new List<Meeting>();
+
+            for (int row = 2; row <= worksheet.Dimension.Rows; row++)
+            {
+                meetings.Add(new Meeting
+                {
+                    School = worksheet.Cells[row, 1].Text,
+                    Advisor = worksheet.Cells[row, 2].Text,
+                    MeetingDate = DateTime.Parse(worksheet.Cells[row, 3].Text)
+                });
+            }
+
+            return meetings;
+        }
+    }
+}
