@@ -29,3 +29,35 @@
     <img src="https://skillicons.dev/icons?i=git,github,ubuntu,powershell,vscode&perline=14" />
   </a>
 </p>
+
+
+using DotNetEnv;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Cargar variables de entorno desde .env
+DotNetEnv.Env.Load();
+
+// Registrar el valor de la variable FILE_PATH como un servicio
+builder.Services.AddSingleton(provider =>
+{
+    string filePath = Environment.GetEnvironmentVariable("FILE_PATH");
+    if (string.IsNullOrEmpty(filePath))
+    {
+        throw new Exception("La variable FILE_PATH no está definida en el archivo .env.");
+    }
+    return filePath;
+});
+
+// Registrar servicios como ExcelReader
+builder.Services.AddSingleton<ExcelReader>();
+builder.Services.AddScoped<MeetingService>();
+
+var app = builder.Build();
+
+app.MapGet("/", (MeetingService meetingService) =>
+{
+    return meetingService.GetAllMeetings();
+});
+
+app.Run();
