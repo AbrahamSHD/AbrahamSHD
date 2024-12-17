@@ -33,24 +33,35 @@
 
 ```
 
-using Domain.Entities;
-using Infrastructure.Data;
-using System.Collections.Generic;
+using Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Application.Services
+namespace Api.Controllers
 {
-    public class MeetingService
+    [Route("api/[controller]")]
+    [ApiController]
+    public class MeetingController : ControllerBase
     {
-        private readonly ExcelReader _excelReader;
+        private readonly MeetingService _meetingService;
 
-        public MeetingService(ExcelReader excelReader)
+        public MeetingController(MeetingService meetingService)
         {
-            _excelReader = excelReader;
+            _meetingService = meetingService;
         }
 
-        public List<Meeting> GetAllMeetings()
+        // GET: api/Meeting
+        [HttpGet]
+        public IActionResult GetAllMeetings()
         {
-            return _excelReader.ReadMeetings();
+            try
+            {
+                var meetings = _meetingService.GetAllMeetings();
+                return Ok(meetings); // Devuelve un HTTP 200 con los datos
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener las reuniones: {ex.Message}");
+            }
         }
     }
 }
