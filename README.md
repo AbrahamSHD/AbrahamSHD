@@ -34,36 +34,46 @@
 ```
 
 using Application.Services;
-using Microsoft.AspNetCore.Mvc;
+using Infrastructure.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.OpenApi.Models;
 
-namespace Api.Controllers
+var builder = WebApplication.CreateBuilder(args);
+
+// 1. Cargar las variables de entorno del archivo .env
+builder.Configuration.AddEnvironmentVariables(); // Cargar las variables desde .env si está configurado
+
+// 2. Configurar el servicio para acceder a las variables de entorno
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
+// 3. Agregar servicios al contenedor de dependencias
+builder.Services.AddControllers();
+
+// Registrar los servicios de aplicación
+builder.Services.AddScoped<ExcelReader>();
+builder.Services.AddScoped<MeetingService>();
+
+// Configuración de Swagger para la API
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class MeetingController : ControllerBase
-    {
-        private readonly MeetingService _meetingService;
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "School API", Version = "v1" });
+});
 
-        public MeetingController(MeetingService meetingService)
-        {
-            _meetingService = meetingService;
-        }
+var app = builder.Build();
 
-        // GET: api/Meeting
-        [HttpGet]
-        public IActionResult GetAllMeetings()
-        {
-            try
-            {
-                var meetings = _meetingService.GetAllMeetings();
-                return Ok(meetings); // Devuelve un HTTP 200 con los datos
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error al obtener las reuniones: {ex.Message}");
-            }
-        }
-    }
+// Configurar el middleware
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "School API v1"));
 }
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+
+// Iniciar la aplicación
+app.Run();
 
 ```
