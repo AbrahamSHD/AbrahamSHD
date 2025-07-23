@@ -5,9 +5,9 @@
 </div>
 <p>
 
-- ☁️ Tengo gran interés en el desarrollo backend. estoy aprendiendo y creando nuevos prouectos con Nest js.
+- ☁️ Tengo gran interés en el desarrollo backend. estoy aprendiendo y creando nuevos proyectos con C#.
 
-- 🔭 Actualmente estoy trabajando con Nest js, Typescript y PostgreSQL/MongoDb.
+- 🔭 Actualmente estoy trabajando como Desarrollador Web Jr, poniendo en práctica mis habilidades con C#, Angular y .NET.
 
 - 📫 No dudes en comunicarte conmigo hernandez.c.abraham.00@gmail.com
 
